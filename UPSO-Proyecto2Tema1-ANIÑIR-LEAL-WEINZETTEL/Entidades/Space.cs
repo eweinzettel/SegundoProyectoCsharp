@@ -8,7 +8,26 @@ namespace UPSO_Proyecto2Tema1_ANIÑIR_LEAL_WEINZETTEL.Entidades
 {
     public class Space : Padre
     {
-        int horasDeVuelo = 0;        
+        private int horasDeVuelo;
+
+        public int HorasDeVuelo { get => horasDeVuelo; set => horasDeVuelo = value; }
+
+        public Space(string modelo, int autonomia, int service, int año, string color, string propietario): base(modelo, autonomia, service, año, color, propietario) 
+        { 
+        
+        }
+
+        public Space(int horasDeVuelo, string modelo, int autonomia, int service, int año, string color, string propietario) : base(modelo, autonomia, service, año, color, propietario)
+        {
+            this.horasDeVuelo = horasDeVuelo;
+            this.Modelo = modelo;
+            this.Autonomia = autonomia; 
+            this.Service = service;
+            this.Año = Año;
+            this.Color = color;
+            this.Propietario= propietario;
+        }
+
     }
 
 
