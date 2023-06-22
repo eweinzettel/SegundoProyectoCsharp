@@ -33,21 +33,5 @@ namespace UPSO_Proyecto2Tema1_ANIÑIR_LEAL_WEINZETTEL.Entidades
             this.Color= color;
             this.Propietario= propietario;
         }
-
-        public List<Car> nuevosAutos;
-
-        public void agregarAutos(Car autosNuevos)
-        {
-            nuevosAutos.Add(autosNuevos);
-
-        }
-
-
-
-
-
-
-
-
     }
 }

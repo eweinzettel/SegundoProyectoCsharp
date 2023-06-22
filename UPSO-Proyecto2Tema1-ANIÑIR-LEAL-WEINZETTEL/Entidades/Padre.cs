@@ -32,23 +32,5 @@ namespace UPSO_Proyecto2Tema1_ANIÑIR_LEAL_WEINZETTEL.Entidades
         public string Color { get => color; set => color = value; }
         public string Propietario { get => propietario; set => propietario = value; }
 
-
-        //public Padre(string modelo, int autonomia, int service, int año, string color, string propietario)
-        //{
-        //    this.modelo = modelo;
-        //    this.Autonomia = autonomia;
-        //    this.Service = service;
-        //    this.Año = año;
-        //    this.Color = color;
-        //    this.Propietario = propietario;
-        //}
-
-        //public string modelo { get => modelo; set => modelo = value; }
-        //public int Autonomia { get => autonomia; set => autonomia = value; }
-        //public int Service { get => service; set => service = value; }
-        //public int Año { get => año; set => año = value; }
-        //public string Color { get => color; set => color = value; }
-        //public string Propietario { get => propietario; set => propietario = value; }
-
     }
 }

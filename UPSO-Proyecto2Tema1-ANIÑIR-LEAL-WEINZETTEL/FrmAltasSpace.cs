@@ -13,39 +13,16 @@ namespace UPSO_Proyecto2Tema1_ANIÑIR_LEAL_WEINZETTEL
 {
     public partial class FrmAltasSpace : Form
     {
-        public FrmAltasSpace()
+        public event EventHandler naveAgregado;
+        private List<Space> listaDeNaves;
+
+        public FrmAltasSpace(List<Space> lista)
         {
             InitializeComponent();
-        }
+            listaDeNaves = lista;
+            this.ActiveControl = txtaño;
+        }        
 
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtColor_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnAceptar_Click(object sender, EventArgs e)
-        {
-                       
-        }
-
-        private void limpiarTexbox()
-        {
-            txtaño.Clear();
-            txtHorasDeVuelo.Clear();
-            txtColor.Clear();
-            txtPropietario.Clear();
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            
-        }
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -57,10 +34,91 @@ namespace UPSO_Proyecto2Tema1_ANIÑIR_LEAL_WEINZETTEL
             this.Close();
         }
 
+        private void btnCancelar_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnCancelarMS_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
         private void FrmAltasSpace_Load(object sender, EventArgs e)
         {
-
+            txtaño.Focus();
         }
+
+        // ******************** MODELO SPACE X STARTSHIP *****************
+        // PRIMER TEXTBOX
+
+        private void txtaño_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+                MessageBox.Show("Solo se permiten números.");
+            }
+            else if (e.KeyChar == (char)Keys.Enter || e.KeyChar == (char)Keys.Tab)
+            {
+                e.Handled = true; // Evita que se ingrese el Enter o Tab en el TextBox actual
+                txtHorasDeVuelo.Select();
+                txtHorasDeVuelo.TabStop = true;
+            }
+        }
+
+        // SEGUNDO TEXTBOX
+
+        private void txtHorasDeVuelo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+                MessageBox.Show("Solo se permiten números.");
+            }
+            else if (e.KeyChar == (char)Keys.Enter || e.KeyChar == (char)Keys.Tab)
+            {
+                e.Handled = true; // Evita que se ingrese el Enter o Tab en el TextBox actual
+                txtColor.Select();
+                txtColor.TabStop = true;
+            }
+        }
+
+        // TERCER TEXTBOX
+
+        private void txtColor_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+                MessageBox.Show("Solo se permiten números y letras.");
+            }
+            else if (e.KeyChar == (char)Keys.Enter || e.KeyChar == (char)Keys.Tab)
+            {
+                e.Handled = true; // Evita que se ingrese el Enter o Tab en el TextBox actual
+                txtPropietario.Select();
+                txtPropietario.TabStop = true;
+            }
+        }
+
+        // CUARTO TEXTBOX
+
+        private void txtPropietario_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+                MessageBox.Show("Solo se permiten números y letras.");
+            }
+            else if (e.KeyChar == (char)Keys.Enter || e.KeyChar == (char)Keys.Tab)
+            {
+                e.Handled = true; // Evita que se ingrese el Enter o Tab en el TextBox actual
+                btnAceptar.Select();
+                btnAceptar.TabStop = true;
+            }
+        }
+
+        // BOTTON ACEPTAR MODELO STARTSHIP
 
         private void btnAceptar_Click_1(object sender, EventArgs e)
         {
@@ -74,15 +132,82 @@ namespace UPSO_Proyecto2Tema1_ANIÑIR_LEAL_WEINZETTEL
             horasVuelo = Convert.ToInt32(txtHorasDeVuelo.Text);
             color = txtColor.Text;
             propietario = txtPropietario.Text;
-
-            // public Car(string modelo, int autonomia, int service, int año, string color, string propietario);
-
             horasVuelo = Convert.ToInt32(txtHorasDeVuelo.Text);
-            Space NaveNuevo = new Space(horasVuelo, "STARSHIP", 500, 1000, año, color, propietario);
-            limpiarTexbox();
-            
+
+            listaDeNaves.Add(new Space(horasVuelo, "STARSHIP", 500, 1000, año, color, propietario));
+
+            naveAgregado?.Invoke(this, EventArgs.Empty);
+
+            this.Close();
+
         }
 
+        // ******************** MODELO SPACE X FALCON 9 *****************
+        // PRIMER TEXTBOX
+        private void textBox4_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+                MessageBox.Show("Solo se permiten números.");
+            }
+            else if (e.KeyChar == (char)Keys.Enter || e.KeyChar == (char)Keys.Tab)
+            {
+                e.Handled = true; // Evita que se ingrese el Enter o Tab en el TextBox actual
+                textBox3.Select();
+                textBox3.TabStop = true;
+            }
+        }
+
+        // SEGUNDO TEXTBOX
+        private void textBox3_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+                MessageBox.Show("Solo se permiten números.");
+            }
+            else if (e.KeyChar == (char)Keys.Enter || e.KeyChar == (char)Keys.Tab)
+            {
+                e.Handled = true; // Evita que se ingrese el Enter o Tab en el TextBox actual
+                textBox2.Select();
+                textBox2.TabStop = true;
+            }
+        }
+
+        // TERCER TEXTBOX
+        private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+                MessageBox.Show("Solo se permiten números y letras.");
+            }
+            else if (e.KeyChar == (char)Keys.Enter || e.KeyChar == (char)Keys.Tab)
+            {
+                e.Handled = true; // Evita que se ingrese el Enter o Tab en el TextBox actual
+                textBox1.Select();
+                textBox1.TabStop = true;
+            }
+        }
+
+        // CUARTO TEXTBOX
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+                MessageBox.Show("Solo se permiten números y letras.");
+            }
+            else if (e.KeyChar == (char)Keys.Enter || e.KeyChar == (char)Keys.Tab)
+            {
+                e.Handled = true; // Evita que se ingrese el Enter o Tab en el TextBox actual
+                btnAceptarMS.Select();
+                btnAceptarMS.TabStop = true;
+            }
+        }
+
+        // BOTON ACEPTAR MODELO FALCON 9
         private void btnAceptarMS_Click(object sender, EventArgs e)
         {
             int año = 0;
@@ -90,31 +215,17 @@ namespace UPSO_Proyecto2Tema1_ANIÑIR_LEAL_WEINZETTEL
             string color = string.Empty;
             string propietario = string.Empty;
 
-            año = Convert.ToInt32(txtaño.Text);
-            horasVuelo = Convert.ToInt32(txtHorasDeVuelo.Text);
-            color = txtColor.Text;
-            propietario = txtPropietario.Text;
+            año = Convert.ToInt32(textBox4.Text);
+            color = textBox2.Text;
+            propietario = textBox1.Text;
+            horasVuelo = Convert.ToInt32(textBox3.Text);
 
-            // public Car(string modelo, int autonomia, int service, int año, string color, string propietario);
+            listaDeNaves.Add(new Space(horasVuelo, "FALCON9", 200, 400, año, color, propietario));
 
-            horasVuelo = Convert.ToInt32(txtHorasDeVuelo.Text);
-            Space NaveNuevo = new Space(horasVuelo, "FALCON9", 200, 400, año, color, propietario);
-            limpiarTexbox();
-        }
+            naveAgregado?.Invoke(this, EventArgs.Empty);
 
-        private void btnCancelar_Click_1(object sender, EventArgs e)
-        {
             this.Close();
         }
 
-        private void btnCancelarMS_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void groupBox4_Enter(object sender, EventArgs e)
-        {
-
-        }
     }
 }

@@ -75,7 +75,7 @@
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(639, 508);
-            this.tabControl1.TabIndex = 3;
+            this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
             // 
@@ -99,7 +99,7 @@
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(428, 113);
-            this.groupBox1.TabIndex = 21;
+            this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
             // btnCancelar
@@ -118,7 +118,7 @@
             this.btnAceptar.Location = new System.Drawing.Point(26, 30);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(167, 66);
-            this.btnAceptar.TabIndex = 0;
+            this.btnAceptar.TabIndex = 5;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = true;
             this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click_1);
@@ -139,37 +139,40 @@
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox4.Size = new System.Drawing.Size(580, 286);
-            this.groupBox4.TabIndex = 20;
+            this.groupBox4.TabIndex = 0;
             this.groupBox4.TabStop = false;
-            this.groupBox4.Enter += new System.EventHandler(this.groupBox4_Enter);
             // 
             // txtPropietario
             // 
             this.txtPropietario.Location = new System.Drawing.Point(191, 214);
             this.txtPropietario.Name = "txtPropietario";
             this.txtPropietario.Size = new System.Drawing.Size(214, 33);
-            this.txtPropietario.TabIndex = 22;
+            this.txtPropietario.TabIndex = 4;
+            this.txtPropietario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPropietario_KeyPress);
             // 
             // txtColor
             // 
             this.txtColor.Location = new System.Drawing.Point(191, 152);
             this.txtColor.Name = "txtColor";
             this.txtColor.Size = new System.Drawing.Size(151, 33);
-            this.txtColor.TabIndex = 21;
+            this.txtColor.TabIndex = 3;
+            this.txtColor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtColor_KeyPress);
             // 
             // txtHorasDeVuelo
             // 
             this.txtHorasDeVuelo.Location = new System.Drawing.Point(191, 95);
             this.txtHorasDeVuelo.Name = "txtHorasDeVuelo";
             this.txtHorasDeVuelo.Size = new System.Drawing.Size(129, 33);
-            this.txtHorasDeVuelo.TabIndex = 20;
+            this.txtHorasDeVuelo.TabIndex = 2;
+            this.txtHorasDeVuelo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtHorasDeVuelo_KeyPress);
             // 
             // txtaño
             // 
             this.txtaño.Location = new System.Drawing.Point(191, 36);
             this.txtaño.Name = "txtaño";
             this.txtaño.Size = new System.Drawing.Size(100, 33);
-            this.txtaño.TabIndex = 17;
+            this.txtaño.TabIndex = 1;
+            this.txtaño.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtaño_KeyPress);
             // 
             // label1
             // 
@@ -178,18 +181,18 @@
             this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(44, 25);
-            this.label1.TabIndex = 16;
+            this.label1.TabIndex = 0;
             this.label1.Text = "año";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(367, 99);
+            this.label3.Location = new System.Drawing.Point(340, 99);
             this.label3.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(39, 25);
-            this.label3.TabIndex = 13;
-            this.label3.Text = "Km";
+            this.label3.Size = new System.Drawing.Size(33, 25);
+            this.label3.TabIndex = 10;
+            this.label3.Text = "Hs";
             // 
             // label6
             // 
@@ -198,7 +201,7 @@
             this.label6.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(106, 25);
-            this.label6.TabIndex = 5;
+            this.label6.TabIndex = 0;
             this.label6.Text = "Propietario";
             // 
             // label7
@@ -208,28 +211,28 @@
             this.label7.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(58, 25);
-            this.label7.TabIndex = 4;
+            this.label7.TabIndex = 0;
             this.label7.Text = "Color";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(17, 99);
+            this.label8.Location = new System.Drawing.Point(41, 99);
             this.label8.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(141, 25);
-            this.label8.TabIndex = 3;
+            this.label8.TabIndex = 0;
             this.label8.Text = "Horas de Vuelo";
             // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.groupBox2);
             this.tabPage2.Controls.Add(this.groupBox5);
-            this.tabPage2.Location = new System.Drawing.Point(4, 28);
+            this.tabPage2.Location = new System.Drawing.Point(4, 34);
             this.tabPage2.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.tabPage2.Size = new System.Drawing.Size(631, 476);
+            this.tabPage2.Size = new System.Drawing.Size(631, 470);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Falcon 9";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -243,7 +246,7 @@
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox2.Size = new System.Drawing.Size(428, 113);
-            this.groupBox2.TabIndex = 23;
+            this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             // 
             // btnCancelarMS
@@ -262,13 +265,14 @@
             this.btnAceptarMS.Location = new System.Drawing.Point(26, 30);
             this.btnAceptarMS.Name = "btnAceptarMS";
             this.btnAceptarMS.Size = new System.Drawing.Size(167, 66);
-            this.btnAceptarMS.TabIndex = 0;
+            this.btnAceptarMS.TabIndex = 5;
             this.btnAceptarMS.Text = "Aceptar";
             this.btnAceptarMS.UseVisualStyleBackColor = true;
             this.btnAceptarMS.Click += new System.EventHandler(this.btnAceptarMS_Click);
             // 
             // groupBox5
             // 
+            this.groupBox5.Controls.Add(this.label10);
             this.groupBox5.Controls.Add(this.textBox1);
             this.groupBox5.Controls.Add(this.textBox2);
             this.groupBox5.Controls.Add(this.textBox3);
@@ -277,7 +281,6 @@
             this.groupBox5.Controls.Add(this.label4);
             this.groupBox5.Controls.Add(this.label5);
             this.groupBox5.Controls.Add(this.label9);
-            this.groupBox5.Controls.Add(this.label10);
             this.groupBox5.Location = new System.Drawing.Point(25, 26);
             this.groupBox5.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox5.Name = "groupBox5";
@@ -291,28 +294,32 @@
             this.textBox1.Location = new System.Drawing.Point(191, 214);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(214, 33);
-            this.textBox1.TabIndex = 22;
+            this.textBox1.TabIndex = 4;
+            this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
             // 
             // textBox2
             // 
             this.textBox2.Location = new System.Drawing.Point(191, 152);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(151, 33);
-            this.textBox2.TabIndex = 21;
+            this.textBox2.TabIndex = 3;
+            this.textBox2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox2_KeyPress);
             // 
             // textBox3
             // 
             this.textBox3.Location = new System.Drawing.Point(191, 95);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(129, 33);
-            this.textBox3.TabIndex = 20;
+            this.textBox3.TabIndex = 2;
+            this.textBox3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox3_KeyPress);
             // 
             // textBox4
             // 
             this.textBox4.Location = new System.Drawing.Point(191, 36);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(100, 33);
-            this.textBox4.TabIndex = 17;
+            this.textBox4.TabIndex = 1;
+            this.textBox4.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox4_KeyPress);
             // 
             // label2
             // 
@@ -321,18 +328,18 @@
             this.label2.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(44, 25);
-            this.label2.TabIndex = 16;
+            this.label2.TabIndex = 0;
             this.label2.Text = "año";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(368, 100);
+            this.label4.Location = new System.Drawing.Point(339, 98);
             this.label4.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(39, 25);
-            this.label4.TabIndex = 13;
-            this.label4.Text = "Km";
+            this.label4.Size = new System.Drawing.Size(33, 25);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Hs";
             // 
             // label5
             // 
@@ -341,7 +348,7 @@
             this.label5.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(106, 25);
-            this.label5.TabIndex = 5;
+            this.label5.TabIndex = 0;
             this.label5.Text = "Propietario";
             // 
             // label9
@@ -351,18 +358,18 @@
             this.label9.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(58, 25);
-            this.label9.TabIndex = 4;
+            this.label9.TabIndex = 0;
             this.label9.Text = "Color";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(18, 100);
+            this.label10.Location = new System.Drawing.Point(31, 98);
             this.label10.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(166, 25);
-            this.label10.TabIndex = 3;
-            this.label10.Text = "Kilometraje Actual";
+            this.label10.Size = new System.Drawing.Size(141, 25);
+            this.label10.TabIndex = 5;
+            this.label10.Text = "Horas de Vuelo";
             // 
             // FrmAltasSpace
             // 

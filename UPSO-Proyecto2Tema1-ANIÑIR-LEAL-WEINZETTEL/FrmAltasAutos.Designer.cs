@@ -34,6 +34,8 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
             this.txtPropietario = new System.Windows.Forms.TextBox();
             this.txtColor = new System.Windows.Forms.TextBox();
             this.txtKmActual = new System.Windows.Forms.TextBox();
@@ -98,6 +100,7 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(639, 508);
             this.tabControl1.TabIndex = 2;
+           // this.tabControl1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tabControl1_KeyPress);
             // 
             // tabPage1
             // 
@@ -111,7 +114,6 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Modelo X";
             this.tabPage1.UseVisualStyleBackColor = true;
-            this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
             // 
             // groupBox1
             // 
@@ -148,6 +150,8 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.label16);
+            this.groupBox4.Controls.Add(this.label17);
             this.groupBox4.Controls.Add(this.txtPropietario);
             this.groupBox4.Controls.Add(this.txtColor);
             this.groupBox4.Controls.Add(this.txtKmActual);
@@ -164,7 +168,26 @@
             this.groupBox4.Size = new System.Drawing.Size(580, 286);
             this.groupBox4.TabIndex = 20;
             this.groupBox4.TabStop = false;
-            this.groupBox4.Enter += new System.EventHandler(this.groupBox4_Enter);
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(118, 152);
+            this.label16.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(58, 25);
+            this.label16.TabIndex = 26;
+            this.label16.Text = "Color";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(10, 95);
+            this.label17.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(166, 25);
+            this.label17.TabIndex = 25;
+            this.label17.Text = "Kilometraje Actual";
             // 
             // txtPropietario
             // 
@@ -172,6 +195,7 @@
             this.txtPropietario.Name = "txtPropietario";
             this.txtPropietario.Size = new System.Drawing.Size(214, 33);
             this.txtPropietario.TabIndex = 22;
+            this.txtPropietario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPropietario_KeyPress);
             // 
             // txtColor
             // 
@@ -179,6 +203,7 @@
             this.txtColor.Name = "txtColor";
             this.txtColor.Size = new System.Drawing.Size(151, 33);
             this.txtColor.TabIndex = 21;
+            this.txtColor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtColor_KeyPress);
             // 
             // txtKmActual
             // 
@@ -186,6 +211,7 @@
             this.txtKmActual.Name = "txtKmActual";
             this.txtKmActual.Size = new System.Drawing.Size(129, 33);
             this.txtKmActual.TabIndex = 20;
+            this.txtKmActual.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtKmActual_KeyPress);
             // 
             // txtaño
             // 
@@ -193,6 +219,7 @@
             this.txtaño.Name = "txtaño";
             this.txtaño.Size = new System.Drawing.Size(100, 33);
             this.txtaño.TabIndex = 17;
+            this.txtaño.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtaño_KeyPress);
             // 
             // label1
             // 
@@ -226,35 +253,27 @@
             // 
             // label7
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(124, 155);
-            this.label7.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label7.Location = new System.Drawing.Point(0, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(58, 25);
-            this.label7.TabIndex = 4;
-            this.label7.Text = "Color";
-            this.label7.Click += new System.EventHandler(this.label7_Click);
+            this.label7.Size = new System.Drawing.Size(100, 23);
+            this.label7.TabIndex = 23;
             // 
             // label8
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(16, 98);
-            this.label8.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label8.Location = new System.Drawing.Point(0, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(166, 25);
-            this.label8.TabIndex = 3;
-            this.label8.Text = "Kilometraje Actual";
-            this.label8.Click += new System.EventHandler(this.label8_Click);
+            this.label8.Size = new System.Drawing.Size(100, 23);
+            this.label8.TabIndex = 24;
             // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.groupBox2);
             this.tabPage2.Controls.Add(this.groupBox5);
-            this.tabPage2.Location = new System.Drawing.Point(4, 34);
+            this.tabPage2.Location = new System.Drawing.Point(4, 28);
             this.tabPage2.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.tabPage2.Size = new System.Drawing.Size(631, 470);
+            this.tabPage2.Size = new System.Drawing.Size(631, 476);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Modelo S";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -317,6 +336,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(214, 33);
             this.textBox1.TabIndex = 22;
+            this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
             // 
             // textBox2
             // 
@@ -324,6 +344,7 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(151, 33);
             this.textBox2.TabIndex = 21;
+            this.textBox2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox2_KeyPress);
             // 
             // textBox3
             // 
@@ -331,6 +352,7 @@
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(129, 33);
             this.textBox3.TabIndex = 20;
+            this.textBox3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox3_KeyPress);
             // 
             // textBox4
             // 
@@ -338,6 +360,7 @@
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(100, 33);
             this.textBox4.TabIndex = 17;
+            this.textBox4.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox4_KeyPress);
             // 
             // label2
             // 
@@ -459,6 +482,7 @@
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(214, 33);
             this.textBox5.TabIndex = 22;
+            this.textBox5.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox5_KeyPress);
             // 
             // textBox6
             // 
@@ -466,6 +490,7 @@
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(151, 33);
             this.textBox6.TabIndex = 21;
+            this.textBox6.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox6_KeyPress);
             // 
             // textBox7
             // 
@@ -473,6 +498,7 @@
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(129, 33);
             this.textBox7.TabIndex = 20;
+            this.textBox7.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox7_KeyPress);
             // 
             // textBox8
             // 
@@ -480,6 +506,7 @@
             this.textBox8.Name = "textBox8";
             this.textBox8.Size = new System.Drawing.Size(100, 33);
             this.textBox8.TabIndex = 17;
+            this.textBox8.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox8_KeyPress);
             // 
             // label11
             // 
@@ -636,5 +663,7 @@
         private Label label13;
         private Label label14;
         private Label label15;
+        private Label label16;
+        private Label label17;
     }
 }
