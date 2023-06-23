@@ -15,12 +15,18 @@ namespace UPSO_Proyecto2Tema1_ANIÑIR_LEAL_WEINZETTEL
     {
 
         public event EventHandler autoAgregado;
+
+        // Lista que contiene objetos de la clase 'Car'
         private List<Car> listaDeAutos;
 
         public FrmAltasAutos(List<Car> lista)
         {
             InitializeComponent();
             listaDeAutos = lista;
+
+            // Establece el control activo en el formulario actual.
+            // Esta función asegura que el foco del usuario se coloque en el control especificado,
+
             this.ActiveControl = txtaño;
         }
 
@@ -31,14 +37,14 @@ namespace UPSO_Proyecto2Tema1_ANIÑIR_LEAL_WEINZETTEL
         }
 
         
-
-
         // ********************* MODELO X ******************************
         // control de los objetos texbox y de la informacion introducida
 
         // PRIMER TEXTBOX
         private void txtaño_KeyPress(object sender, KeyPressEventArgs e)
         {
+            // validaciones para que se ingresen solamenta numeros, no permitiendo ingresar letras ni caractereres especiales
+            
             if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
             {
                 e.Handled = true;
@@ -55,6 +61,8 @@ namespace UPSO_Proyecto2Tema1_ANIÑIR_LEAL_WEINZETTEL
         // SEGUNDO TEXTBOX
         private void txtKmActual_KeyPress(object sender, KeyPressEventArgs e)
         {
+            // validaciones para que se ingresen solamenta numeros, no permitiendo ingresar letras ni caractereres especiales
+
             if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
             {
                 e.Handled = true;
@@ -71,6 +79,9 @@ namespace UPSO_Proyecto2Tema1_ANIÑIR_LEAL_WEINZETTEL
         // TERCER TEXTBOX
         private void txtColor_KeyPress(object sender, KeyPressEventArgs e)
         {
+
+            // validaciones para que se ingresen solamenta numeros, no permitiendo ingresar letras ni caractereres especiales
+
             if (!char.IsDigit(e.KeyChar) && !char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar))
             {
                 e.Handled = true;
@@ -157,7 +168,6 @@ namespace UPSO_Proyecto2Tema1_ANIÑIR_LEAL_WEINZETTEL
                 e.Handled = true; // Evita que se ingrese el Enter o Tab en el TextBox actual
                 textBox2.Select(); 
                 textBox2.TabStop= false;
-
             }
         }
 
@@ -192,7 +202,6 @@ namespace UPSO_Proyecto2Tema1_ANIÑIR_LEAL_WEINZETTEL
                 e.Handled = true; // Evita que se ingrese el Enter o Tab en el TextBox actual
                 btnAceptarMS.Select();
                 btnAceptarMS.TabStop= false;
-
             }
         }
 
@@ -217,11 +226,6 @@ namespace UPSO_Proyecto2Tema1_ANIÑIR_LEAL_WEINZETTEL
             limpiarTexbox();
 
             this.Close();
-
-
-
-
-
         }
 
         // ************************ MODELO CIBERTRUCK *************************
@@ -242,7 +246,6 @@ namespace UPSO_Proyecto2Tema1_ANIÑIR_LEAL_WEINZETTEL
                 e.Handled = true; // Evita que se ingrese el Enter o Tab en el TextBox actual
                 textBox7.Select();
                 textBox7.TabStop= true;
-
             }
         }
 
@@ -260,8 +263,6 @@ namespace UPSO_Proyecto2Tema1_ANIÑIR_LEAL_WEINZETTEL
                 e.Handled = true; // Evita que se ingrese el Enter o Tab en el TextBox actual
                 textBox6.Select(); 
                 textBox6.TabStop= true;
-
-
             }
         }
 
@@ -278,7 +279,6 @@ namespace UPSO_Proyecto2Tema1_ANIÑIR_LEAL_WEINZETTEL
                 e.Handled = true; // Evita que se ingrese el Enter o Tab en el TextBox actual
                 textBox5.Select(); 
                 textBox5.TabStop= true;
-
             }
         }
 
@@ -321,9 +321,6 @@ namespace UPSO_Proyecto2Tema1_ANIÑIR_LEAL_WEINZETTEL
             limpiarTexbox();
 
             this.Close();
-
-
-
 
         }
 

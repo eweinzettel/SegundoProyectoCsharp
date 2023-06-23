@@ -9,40 +9,50 @@ namespace UPSO_Proyecto2Tema1_ANIÑIR_LEAL_WEINZETTEL
 
     public partial class FrmPrincipalMenu : Form
     {
+
+        // BindingSource se utilizada para enlazar los datos de los autos.
+
         private BindingSource bindingSourceAutos, bindingSourceNaves;
 
+        
+        // definimos diccionarios para poder almacenar los datos de forma Clave-Valor
         private Dictionary<string, int> diccionarioServiceAuto = new Dictionary<string, int>();
         private Dictionary<string, int> diccionarioServiceSpace = new Dictionary<string, int>();
 
+        
+        // definimmos una lista de objetos del tipo Car y Space
         private List<Car> listaDeAutos;
         private List<Space> listaDeNaves;
 
+        // declaramos variables del tipo string, para poder almacenar datos que se
+        // obtienen de los datagridview
         private string cellValueAutonomia;
         private string cellValueKm;
 
         private string cellValueHorasVuelo;
         private string cellValueAutonomiaVuelo;
 
-
         public FrmPrincipalMenu()
         {
             InitializeComponent();
 
+            
+            // instanciacion de las variables
             listaDeAutos = new List<Car>();
             listaDeNaves = new List<Space>();
 
+            
+            // agregamos informacion al diccionario de service del auto y de la naves
             diccionarioServiceAuto.Add("(1) Control Cinturones de Seguridad", 1000);
             diccionarioServiceAuto.Add("(2) Control de Baterias", 2000);
             diccionarioServiceAuto.Add("(3) Control del sistema de navegacionAuto", 2500);
             diccionarioServiceAuto.Add("(4) Control del sistema de Traccion", 3000);
             diccionarioServiceAuto.Add("(5) Control del motor", 3000);
+
             diccionarioServiceSpace.Add("(1) Control del sistema de propulsion", 1000);
             diccionarioServiceSpace.Add("(2) Control del sistema de navegacionSpace", 500);
 
-            // A variable is created that is a list of objects with the defined structure.
-
-            // public Car(string modelo, int asientos, int km, int autonomia, int service, int año, string color, string propietario);
-
+            //agregamos informacion a la lista de autos
             listaDeAutos.Add(new Car("MODELO X", 7, 4200, 560, 1000, 2022, "CELESTE", "BILL GATES"));
             listaDeAutos.Add(new Car("MODELO X", 7, 5600, 560, 1000, 2023, "ROSA", "LIONEL MESSI"));
             listaDeAutos.Add(new Car("MODELO S", 5, 12500, 650, 2000, 2022, "BLANCO", "DONALD TRUMP"));
@@ -50,6 +60,7 @@ namespace UPSO_Proyecto2Tema1_ANIÑIR_LEAL_WEINZETTEL
             listaDeAutos.Add(new Car("CYBERTRUCK", 6, 1500, 800, 3000, 2020, "NARANJA", "VIN DIESEL"));
             listaDeAutos.Add(new Car("CYBERTRUCK", 6, 5800, 800, 3000, 2020, "VERDE", "JASON STATHAM"));
 
+            //agregamos informacion a la lista de naves
             listaDeNaves.Add(new Space(500,"FALCON9X", 200, 400, 2020, "NEGRO", "ELION MUSK"));
             listaDeNaves.Add(new Space(600,"FALCON9X", 200, 400, 2021, "AZUL", "ELION MUSK"));
             listaDeNaves.Add(new Space(750,"STARSHIP", 500, 1000, 2022, "VERDE", "ELION MUSK"));
@@ -59,6 +70,11 @@ namespace UPSO_Proyecto2Tema1_ANIÑIR_LEAL_WEINZETTEL
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            
+            // declaracion de variables utilizadas para poder actualizar correctamente
+            // el datagridview cuando se da Altas, cuando se elimina, etc en tiempo
+            // real
+            
             dataGridView1.DataSource = listaDeAutos;
             dataGridView1.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
             dataGridView1.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
@@ -79,34 +95,61 @@ namespace UPSO_Proyecto2Tema1_ANIÑIR_LEAL_WEINZETTEL
 
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            // salida del programa
             Environment.Exit(0);
         }
 
         private void btnAltasAuto_Click(object sender, EventArgs e)
         {
+
+            // Crea una instancia de la clase FrmAltasAutos y la asigna a la variable frmAltasAutos.
             FrmAltasAutos frmAltasAutos = new FrmAltasAutos(listaDeAutos);
             frmAltasAutos.autoAgregado += actualizarGrillaAutos;
+            
+            // se llama al otro formulario
             frmAltasAutos.Show();
         }
 
         private void btnAltaNave_Click(object sender, EventArgs e)
         {
+            // Crea una instancia de la clase FrmAltasAutos y la asigna a la variable frmAltasAutos.
             FrmAltasSpace frmAltasSpace = new FrmAltasSpace(listaDeNaves);
             frmAltasSpace.naveAgregado += actualizarGrillaNaves;
+
+            // se llama al otro formulario
             frmAltasSpace.Show();
         }
 
         private void btnMostarCarga_Click(object sender, EventArgs e)
         {
+            
+            // Muestra el auto mas antiguo que se encuentra en el listado de autos mediante
+            // la utilizacion del evento OrderBy, donde se lo ordena de manera de menor a 
+            // mayor y con el evento First() se obtiene el primer valor de la lista que es
+            // el valor mas pequeño
             var autoMasAntiguo = listaDeAutos.OrderBy(auto => auto.Año).First();
+
+            // Filtra la lista de autos 'listaDeAutos' para obtener los autos que sean iguales al auto más antiguo. 
             var listaFiltrada = listaDeAutos.Where(auto => auto == autoMasAntiguo).ToList();
+            
+            // se le asigna esa lista al DataSource del datagrid para que se cargue con esos
+            // valores
             dataGridView1.DataSource = listaFiltrada;
         }
 
         private void btnMostarnaveMasNueva_Click(object sender, EventArgs e)
         {
+            // Muestra el auto mas antiguo que se encuentra en el listado de autos mediante
+            // la utilizacion del evento OrderBy, donde se lo ordena de manera de menor a 
+            // mayor y con el evento Last() se obtiene el ultimo valor de la lista que es
+            // el valor mas grande
             var naveMasNueva = listaDeNaves.OrderBy(nave => nave.Año).Last();
+            
+            // Filtra la lista de autos 'listaDeAutos' para obtener los autos que sean iguales al auto más antiguo. 
             var listaFiltrada = listaDeNaves.Where(nave => nave == naveMasNueva).ToList();
+
+            // se le asigna esa lista al DataSource del datagrid para que se cargue con esos
+            // valores
             dataGridView2.DataSource = listaFiltrada;
         }
 
@@ -115,23 +158,24 @@ namespace UPSO_Proyecto2Tema1_ANIÑIR_LEAL_WEINZETTEL
         {
             if (dataGridView2.SelectedRows.Count > 0)
             {
-                // Obtener la fila seleccionada
+                // Obtiene la fila seleccionada
                 DataGridViewRow filaSeleccionada = dataGridView2.SelectedRows[0];
 
-                // Verificar si la fila está enlazada a un objeto
+                // Verifica si la fila está enlazada a un objeto
                 if (filaSeleccionada.DataBoundItem != null)
                 {
-                    // Obtener el objeto asociado a la fila seleccionada
+                    // Obtiene el objeto asociado a la fila seleccionada
                     Space elementoAEliminar = (Space)filaSeleccionada.DataBoundItem;
 
-                    // Remover el elemento de la lista original
+                    // Elimina el elemento de la lista original
                     listaDeNaves.Remove(elementoAEliminar);
 
-                    // Volver a asignar la lista actualizada al BindingSource
+                    // Vuelve a asignar la lista actualizada al BindingSource
                     bindingSourceAutos.DataSource = null;
                     bindingSourceAutos.DataSource = listaDeNaves;
 
-                    // Volver a asignar el BindingSource al DataGridView
+                    // Vuelve a asignar el BindingSource al DataGridView
+                    // toda esta secuencia es para que la grilla se actualize en tiempo real
                     dataGridView2.DataSource = null;
                     dataGridView2.DataSource = bindingSourceNaves;
 
@@ -144,23 +188,23 @@ namespace UPSO_Proyecto2Tema1_ANIÑIR_LEAL_WEINZETTEL
         {
             if (dataGridView1.SelectedRows.Count > 0)
             {
-                // Obtener la fila seleccionada
+                // Obtiene la fila seleccionada
                 DataGridViewRow filaSeleccionada = dataGridView1.SelectedRows[0];
 
-                // Verificar si la fila está enlazada a un objeto
+                // Verifica si la fila está enlazada a un objeto
                 if (filaSeleccionada.DataBoundItem != null)
                 {
-                    // Obtener el objeto asociado a la fila seleccionada
+                    // Obtiene el objeto asociado a la fila seleccionada
                     Car elementoAEliminar = (Car)filaSeleccionada.DataBoundItem;
 
-                    // Remover el elemento de la lista original
+                    // Elimina el elemento de la lista original
                     listaDeAutos.Remove(elementoAEliminar);
 
-                    // Volver a asignar la lista actualizada al BindingSource
+                    // Vuelve a asignar la lista actualizada al BindingSource
                     bindingSourceAutos.DataSource = null;
                     bindingSourceAutos.DataSource = listaDeAutos;
 
-                    // Volver a asignar el BindingSource al DataGridView
+                    // Vuelve a asignar el BindingSource al DataGridView
                     dataGridView1.DataSource = null;
                     dataGridView1.DataSource = bindingSourceAutos;
 
@@ -172,17 +216,20 @@ namespace UPSO_Proyecto2Tema1_ANIÑIR_LEAL_WEINZETTEL
 
         private void btnMostrarTodosAutos_Click(object sender, EventArgs e)
         {
+            
+            // actualiza la grilla 
             actualizarGrillaAutos(sender, e);
         }
 
         private void btnMostarTodasNaves_Click(object sender, EventArgs e)
         {
+            // actualiza la grilla
             actualizarGrillaNaves(sender, e);
         }
         
         private void actualizarGrillaNaves(object sender, EventArgs e)
         {
-            // Actualizar la vista del DataGridView
+            // Actualiza la vista del DataGridView
             dataGridView2.DataSource = null;
             dataGridView2.DataSource = listaDeNaves;
             dataGridView2.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
@@ -208,7 +255,7 @@ namespace UPSO_Proyecto2Tema1_ANIÑIR_LEAL_WEINZETTEL
             }
             else
             {
-                MessageBox.Show("No se ha seleccionado una fila o las celdas son nulas.");
+                MessageBox.Show("No se ha seleccionado correctamente una fila o bien las celdas son nulas.");
             }
         }
 
@@ -280,7 +327,7 @@ namespace UPSO_Proyecto2Tema1_ANIÑIR_LEAL_WEINZETTEL
             }
             else
             {
-                MessageBox.Show("No se ha seleccionado una fila o las celdas son nulas.");
+                MessageBox.Show("No se ha seleccionado correctamente una fila o bien las celdas son nulas.");
             }
         }
 
@@ -335,6 +382,11 @@ namespace UPSO_Proyecto2Tema1_ANIÑIR_LEAL_WEINZETTEL
                 }
 
             }
+            else 
+            {
+                MessageBox.Show("Seleccion no valida, selecciona toda una fila colocando el puntero del mouse sobre la primer columna del datagrid");
+
+            }
         }
 
         private void btnEscaneoNave_Click(object sender, EventArgs e)
@@ -375,6 +427,12 @@ namespace UPSO_Proyecto2Tema1_ANIÑIR_LEAL_WEINZETTEL
                     }
                     MessageBox.Show(mensaje);
                 }
+
+            }
+
+            else
+            {
+                MessageBox.Show("Seleccion no valida, selecciona toda una fila colocando el puntero del mouse sobre la primer columna del datagrid");
 
             }
         }
